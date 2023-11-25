@@ -15,7 +15,7 @@ Here are the steps to create the project:
   - Use the command "django-admin startproject projectname" to initiate a Django project.
   - Navigate to the project directory using the "cd projectname" command.
   - Create apps within the Django project using the command "django-admin startapp yourappname."
-  - 
+
 3.After setting up the project and apps, go to the settings.py file inside your project. In the 'INSTALLED_APPS' section, include the apps of your project.
 
 4.Include the app URLs in the project-level urls.py file (inside your project name directory).
