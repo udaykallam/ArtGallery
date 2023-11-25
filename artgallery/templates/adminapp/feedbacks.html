@@ -1,0 +1,20 @@
+{% extends 'adminapp/adminhome.html' %}
+{% block content %}
+<br>
+<h1>CUSTOMER FEEDBACKS:</h1>
+<div class="feedbacks-container">
+    {% for d in data %}
+    <div class="feedback-card">
+        <div class="feedback-details">
+            <strong style="color:brown">Name:</strong> {{ d.name }}<br>
+            <strong>Phone Number:</strong> {{ d.phone }}<br>
+            <strong>Email:</strong> {{ d.email }}<br>
+        </div>
+        <div class="feedback-content">
+            <strong>Feedback:</strong>
+            {{ d.feedback }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

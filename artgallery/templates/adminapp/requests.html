@@ -1,0 +1,41 @@
+{% extends 'adminapp/adminhome.html' %}
+{% block content %}
+    <h3 class="recent-requests-heading">Recent Artist Requests</h3>
+    <ul class="artist-request-list">
+        {% for request in artist_requests %}
+            <li class="artist-request-item">
+                <h5 class="product-title">Product: {{ request.product.title }}</h5>
+                <h5 class="action-display">Action: {{ request.get_action_display }}</h5>
+                {% if request.new_price %}
+                    <h5 class="new-price">New Price: {{ request.new_price }}</h5>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+<style>
+    .recent-requests-heading {
+        color: #333;
+        margin-bottom: 15px;
+    }
+    .artist-request-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .artist-request-item {
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    .product-title {
+        font-weight: bold;
+    }
+    .action-display {
+        color: #007bff;
+    }
+    .new-price {
+        color: #28a745;
+    }
+</style>

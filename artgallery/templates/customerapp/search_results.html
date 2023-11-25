@@ -1,0 +1,21 @@
+{% extends 'customerapp/index.html' %}
+{% block content %}
+<div class="main">
+    <h2>Search Results for "{{ query }}"</h2>
+    <div class="cards">
+        {% for product in products %}
+           <div class="images">
+    <img src="{{ product.image.url }}" alt="{{ product.title }}">
+</div>
+       <div class="titles">
+           <h1>{{ product.title }}</h1>
+       </div>
+       <div class="des">
+            <h4>&#8377;{{ product.price }}</h4>
+       <button><a style="color: black" href="{{ product.get_absolute_url }}">Buy</a></button>
+       </div>
+       </div>
+       {% endfor %}
+    </div>
+</div>
+{% endblock %}

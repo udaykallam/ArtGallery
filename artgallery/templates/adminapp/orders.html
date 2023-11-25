@@ -1,0 +1,39 @@
+{% extends 'adminapp/adminhome.html' %}
+{% block content %}
+<br>
+<center>
+  <h2>Orders</h2>
+</center>
+<div class="orders-container">
+  {% for address in addresses %}
+    <div class="order-details">
+      <p><strong>Name:</strong> {{ address.name }}</p>
+      <p><strong>Phone:</strong> {{ address.phone }}</p>
+      <p><strong>Email:</strong> {{ address.email }}</p>
+      <p><strong>Pincode:</strong> {{ address.pincode }}</p>
+      <p><strong>Address:</strong> {{ address.address }}</p>
+      <p><strong>Product:</strong> {{ address.title }}</p>
+      <p><strong>Price:</strong> {{ address.price }}</p>
+    </div>
+    <hr>
+  {% endfor %}
+</div>
+<style>
+  .orders-container {
+    width: 80%;
+    margin: 20px auto;
+  }
+  .order-details {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .order-details p {
+    margin: 5px 0;
+  }
+  hr {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+  }
+</style>
+{% endblock %}

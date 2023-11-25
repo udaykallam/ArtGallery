@@ -1,0 +1,18 @@
+{% extends 'customerapp/userhome.html' %}
+{% block content %}
+  <form method="post" action="{% url 'address' title=title price=price %}" style="width: 50%; margin: 0 auto;">
+    {% csrf_token %}
+    <br>
+    <br>
+    <center>
+    <H3>Fill the details below:</H3>
+    </center>
+    <br>
+    {{ form.as_p }}
+    <center>
+     <a href="{% url 'paymentpage' title=title price=price %}">
+      <button type="submit" style="width: 200px; padding: 10px; background-color: black; color: #fff; border: none; cursor: pointer;">Next</button>
+    </a>
+      </center>
+  </form>
+{% endblock %}

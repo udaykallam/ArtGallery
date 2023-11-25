@@ -1,0 +1,32 @@
+{% extends 'customerapp/index.html' %}
+{% block content %}
+<div class="b1">
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Login
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="form-inner">
+               <form action="{% url 'checkuserlogin' %}" method="post" class="login">
+                  {% csrf_token %}
+                  <div class="field">
+                     <input type="text" name="uname" placeholder="Username" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" name="pwd" placeholder="Password" required>
+                  </div>
+                  <div class="pass-link">
+                         <a href="{% url 'password_reset' %}">Forgot password?</a>
+                     </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Login">
+                  </div>
+                  <h6 align="center" style="color:purple">{{msg}}</h6>
+
+                  <div class="signup-link">
+                     Don't have an account? <a href="{% url 'signup' %}">Signup now</a>
+                  </div>
+   {% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'artistapp/artisthome.html' %}
+{% block content %}
+<br>
+<br>
+  <form method="post" action="{% url 'artistpaymentpage' title=title price=price %}" style="margin-top: 20px;">
+            {% csrf_token %}
+    <div style="max-width: 400px; margin: 0 auto;">
+        <h1 style="text-align: center;">Payment</h1>
+        <h5 style="text-align: center;">You are about to pay: &#8377;{{ price }}</h5>
+            <div style="margin-bottom: 10px;">
+                <label for="card_number">Card Number:</label>
+                <input type="text" id="card_number" name="card_number" required style="width: 100%; padding: 8px;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="expiry_date">Expiry Date:</label>
+                <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YYYY" required style="width: 100%; padding: 8px;">
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required style="width: 100%; padding: 8px;">
+            </div>
+            <button type="submit" style="width: 100%; padding: 10px; background-color:black; color: white; border: none; cursor: pointer;">Pay</button>
+  </form>
+  </div>
+{% endblock %}

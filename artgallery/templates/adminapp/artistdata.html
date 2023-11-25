@@ -1,0 +1,56 @@
+{% extends 'adminapp/adminhome.html' %}
+{% block content %}
+{{Error}}
+<form method="post" action="{% url 'add_artist' %}" style="width: 50%; margin: 0 auto;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div style="text-align: center;">
+        <input type="submit" style="width: 200px; padding: 10px; background-color: black; color: white; border: none; cursor: pointer;" value="Add Artist">
+    </div>
+</form>
+<h2>Artist Data</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for artist in artists %}
+        <tr>
+            <td>{{ artist.username }}</td>
+            <td>{{ artist.email }}</td>
+            <td>
+                {{ artist.phone }}
+                {% if form.phone.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.phone.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </td>
+            <td>
+                <form method="post" action="{% url 'delete_artist' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="username" value="{{ artist.username }}">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<style>
+    table {
+        width: 100%;
+    }
+    th, td {
+        padding: 8px; /* Adjust the padding to control the space between columns */
+    }
+</style>
+
+{% endblock %}

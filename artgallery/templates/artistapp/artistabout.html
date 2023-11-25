@@ -1,0 +1,77 @@
+{% extends 'artistapp/artisthome.html' %}
+{% block content %}
+<style>
+        .container {
+            width: 85%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        section {
+            margin-top: 40px;
+        }
+        .about-card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .about-card:hover {
+            transform: scale(1.05);
+        }
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+    </style>
+<div class="container">
+        <section>
+            <div class="about-card" style="margin-bottom: 20px;">
+                <div class="card-content" style="padding: 20px;">
+                    <h2 style="margin-top: 0;">About Kondapalli Toys</h2>
+                    <p>
+                        Kondapalli art, also known as Kondapalli toys, is a traditional form of Andhra Pradesh, India.
+                        These handcrafted wooden toys and figurines are renowned for their intricate craftsmanship,
+                        vibrant colors, and unique artistic expressions.Kondapalli art traces its roots to the village
+                        of Kondapalli in the Krishna district of Andhra Pradesh, India.
+                        This traditional art form has been practiced in the region for several centuries,
+                        making it an integral part of the local cultural heritage.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="about-card" style="margin-bottom: 20px;">
+                <div class="card-content" style="padding: 20px;">
+                    <h2 style="margin-top: 0;">Our Mission</h2>
+                    <p>
+                       Our primary mission is to empower the skilled artisans from Kondapalli, showcasing their exquisite craftwork.
+                        Through this platform, we aim to provide them with opportunities to not only share their beautiful
+                        creations but also to generate sustainable income. By fostering a supportive community,
+                        we strive to celebrate and promote the rich artistic heritage of Kondapalli, enabling artisans to thrive and prosper.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="about-card">
+
+                <div class="card-content" style="padding: 20px;">
+                    <h2 style="margin-top: 0;">Craftsmanship</h2>
+                    <p>
+                        Kondapalli toys are crafted with meticulous precision using a range of hand tools such as chisels and knives.
+                        Skilled artisans employ their expertise to create figures that are characterized by smooth, rounded edges and fine detailing.
+                        The vibrant colors used in Kondapalli art are derived from natural sources like vegetable dyes and turmeric.
+                        These pigments lend the toys a distinctive and eye-catching appearance, enhancing their aesthetic appeal.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

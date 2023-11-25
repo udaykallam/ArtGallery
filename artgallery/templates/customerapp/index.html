@@ -1,0 +1,85 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+   <link type="text/css" rel="stylesheet" href="{% static  'css/styles.css' %}"/>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <title>ArtGallery</title>
+</head>
+<body id="bg" style="background-color:#C2CAD0";>
+<nav class="navbar navbar-expand-lg bg-light" data-bs-theme="light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ArtGallery</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'home'  %}">Home
+            <span class="visually-hidden">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about'  %}">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'decontact'  %}">Contact</a>
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'login'  %}">Login</a>
+        </li>
+      </div>
+    </a>
+</li>
+      </ul>
+     <form class="d-flex" method="GET" action="{% url 'search' %}">
+    <input class="form-control me-sm-2" type="search" placeholder="Search" name="q">
+         <ul id="suggestion-list"></ul>
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+````</form>
+    </div>
+  </div>
+</nav>
+{% block content %}
+{% endblock %}
+  <script src="static/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#search-input").on('input', function () {
+            var query = $(this).val();
+            if (query.length >= 2) {
+                $.ajax({
+                    url: "{% url 'search_suggestions' %}",
+                    data: {q: query},
+                    dataType: 'json',
+                    success: function (data) {
+                        var suggestions = data.suggestions;
+                        var suggestionList = $("#suggestion-list");
+                        suggestionList.empty();
+                        for (var i = 0; i < suggestions.length; i++) {
+                            suggestionList.append("<li>" + suggestions[i] + "</li>");
+                        }
+                        suggestionList.show();
+                    }
+                });
+            } else {
+                $("#suggestion-list").hide();
+            }
+        });
+
+        $(document).on('click', '#suggestion-list li', function () {
+            var suggestion = $(this).text();
+            $("#search-input").val(suggestion);
+            $("#suggestion-list").hide();
+        });
+    });
+</script>
+</body>
+</html>

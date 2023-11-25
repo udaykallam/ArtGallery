@@ -1,0 +1,52 @@
+{% extends 'customerapp/index.html' %}
+{% block content %}
+  <h3 align="center" style="color:purple">{{msg1}}</h3>
+  <h3 align="center" style="color:purple">{{message}}</h3>
+  <h3 align="center" style="color:purple">{{msg2}}</h3>
+<div class="b1">
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title signup">
+               Signup
+            </div>
+         </div>
+         <div class="form-inner">
+               <form action="" method="post" class="signup">
+                  {% csrf_token %}
+                  <div class="field">
+                     <input type="text" name="user" placeholder="Username" required>
+                  </div>
+                  <div class="field">
+                     <input type="text" name="email" placeholder="Email Address" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" name="pass1" placeholder="Password" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" name="pass2" placeholder="Confirm password" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Signup">
+                  </div>
+                    <li>
+                         Password must be 8 characters.
+                    </li>
+                       <li>
+                          Password must contain at least one uppercase and one lowercase.
+                       </li>
+                  <li>
+                  Password must contain at least one digit.
+               </li>
+                  <li>
+                     Password must contain at least one special character.
+                  </li>
+                  <div class="signup-link">
+                     Have an account? <a href="{% url 'login' %}">Login now</a>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+{% endblock %}

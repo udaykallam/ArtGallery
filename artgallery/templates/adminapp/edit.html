@@ -1,0 +1,59 @@
+{% extends 'adminapp/adminhome.html' %}
+{% block content %}
+<br>
+<br>
+<br>
+<center>
+    <div class="edit-product-container">
+        <h2>Edit Product</h2>
+        <form method="post" enctype="multipart/form-data" class="edit-product-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="{{ form.title.id_for_label }}">Title:</label>
+                {{ form.title }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.price.id_for_label }}">Price:</label>
+                {{ form.price }}
+            </div>
+            <div class="form-group center">
+                <button type="submit" style="background:black" class="btn btn-primary">Save Changes</button>
+            </div>
+        </form>
+    </div>
+    </center>
+<style>
+    .edit-product-container {
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 8px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .edit-product-form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+        display: block;
+        text-align: left;
+    }
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+    }
+
+</style>
+
+{% endblock %}

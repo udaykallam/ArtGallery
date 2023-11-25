@@ -1,0 +1,23 @@
+{% extends 'artistapp/artisthome.html' %}
+{% block content %}
+<br>
+<center>
+    <h3 style="color: #333;">Request for updation or deletion:</h3>
+    </center>
+<br>
+    <form method="post" enctype="multipart/form-data" style="max-width: 400px; margin: 0 auto; background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+        {% csrf_token %}
+        <label for="{{ form.product.id_for_label }}" style="display: block; margin-bottom: 8px; color: #555;">Product:</label>
+        {{ form.product }}
+        <label for="{{ form.action.id_for_label }}" style="display: block; margin-bottom: 8px; color: #555;">Action:</label>
+        {{ form.action }}
+        <label for="{{ form.new_price.id_for_label }}" style="display: block; margin-bottom: 8px; color: #555;">New Price:</label>
+        {{ form.new_price }}
+        <center>
+        <button type="submit" style="background-color:black; color: #fff; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+        </center>
+    </form>
+    <center>
+        <h3>{{msg}}</h3>
+    </center>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'adminapp/adminhome.html' %}
+{% block content %}
+<form method="post" enctype="multipart/form-data" style="width: 50%; margin: 0 auto;">
+    {% csrf_token %}
+    <br>
+    <div style="margin-bottom: 10px;">
+        <label for="title" style="font-weight: bold;">Title:</label>
+        <input type="text" id="title" style="width: 100%; padding: 5px;" name="title" required>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="price" style="font-weight: bold;">Price (in Rs):</label>
+        <input type="number" id="price" style="width: 100%; padding: 5px;" name="price" step="0.01" required>
+    </div>
+    <div style="margin-bottom: 10px;">
+        <label for="image" style="font-weight: bold;">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+    </div>
+    <div style="text-align: center;">
+        <input type="submit" style="width: 200px; padding: 10px; background-color:black; color:fff; border: none; cursor: pointer;" value="Upload">
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'customerapp/userhome.html' %}
+{% block content %}
+ {% for product in products %}
+            <div class="cards">
+                <div class="images">
+                    <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                </div>
+                <div class="titles">
+                    <h1>{{ product.title }}</h1>
+                </div>
+                <div class="des">
+                    <h4>&#8377;{{ product.price }}</h4>
+                    <a href="{% url 'address' title=product.title price=product.price %}">
+                        <button>Buy</button></a>
+                </div>
+            </div>
+        {% endfor %}
+{% endblock %}

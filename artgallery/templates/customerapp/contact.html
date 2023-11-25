@@ -1,0 +1,59 @@
+{% extends 'customerapp/userhome.html' %}
+
+{% block content %}
+<form method="post" action="{% url 'contactfunction' %}">
+        {% csrf_token %}
+<div class="contact">
+    <h4 style="center">{{msgm1}}</h4>
+     <h4 style="center">{{msgm2}}</h4>
+     <h4 style="center">{{msgm3}}</h4>
+  <h3 class="head" align="center">
+  Contact Us</h3>
+  <h1>Your valuable feedback help us to improve ourselves and understand your feelings about our ArtGallery.</h1>
+  <div class="box">
+    <div class="contact-left">
+      <h3>Send your feedback</h3>
+      <form>
+        <div class="input-row">
+         <div class="input-group">
+           <label>Name</label>
+           <input type="text" name="n" placeholder="abc">
+         </div>
+         <div class="input-group">
+           <label>Phone</label>
+           <input type="text" name="number" placeholder="+91 987654321">
+         </div>
+            </div>
+          <div class="input-row">
+         <div class="input-group">
+           <label>Email</label>
+           <input type="email" name="mail" placeholder="abc@gmail.com">
+         </div>
+              </div>
+            <label>Feedback</label>
+            <textarea  rows="5" name="feed" placeholder="Your Feedback"></textarea>
+            <button>Send</button>
+    </div>
+</form>
+    </div>
+     <div class="contact-right">
+       <h3>Reach us</h3>
+         <table>
+             <tr>
+                 <td>Email:</td>
+                 <td>artgallery5656@gmail.com</td>
+                 </tr>
+             <tr>
+                 <td>Phone:</td>
+                 <td>+91 9876543211</td>
+             </tr>
+             <tr>
+                 <td>Address:</td>
+                 <td>KLEF Deemed to be University,Green Fields, Vaddeswaram,Guntur District, A.P., INDIA.Pincode : 522 302.
+                 </td>
+             </tr>
+         </table>
+  </div>
+</div>
+</form>
+{% endblock %}

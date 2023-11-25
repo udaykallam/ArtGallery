@@ -1,0 +1,12 @@
+{% extends 'customerapp/userhome.html' %}
+{% block content %}
+<br>
+<br>
+  <form method="post" action="{% url 'paymentpage' title=title price=price %}" style="margin-top: 20px;">
+            {% csrf_token %}
+      <center>
+          <h4>Your payment of &#8377;{{ price }} is Successfull!!</h4>
+          <h5>Order for <h5 style="color:fff">{{title}}</h5>will be delivered soon!!</h5>
+      </center>
+  </form>
+{% endblock %}
