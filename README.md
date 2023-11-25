@@ -37,6 +37,15 @@ Here are the steps to create the project:
   - Create urls.py inside apps as there will be no urls.py in the apps by default.
   - Optionally, include forms.py if necessary.
 
+9.Create superuser:
+  - Enter the command "python manage.py createsuperuser" in the terminal.
+  - Then give your user details like username,email(optional) and password.
+  - To access the administration page - ' /admin ' in the url in browser. Then login with the credentials that you have given in the terminal.
+
+10.Makemigration and migrate:
+  - After creating the models for the table creation, you have to run the commands 'python manage.py makemigrations' and 'python manage.py migrate' in the terminal.
+    
+
 These steps are designed for beginners to create the project. Upon reviewing the repository, you will definitely understand the structure to be followed.
 
 
