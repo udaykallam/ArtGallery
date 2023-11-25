@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'artgallery.wsgi.application'
 DATABASES ={
     'default':{
         'ENGINE':'django.db.backends.postgresql',
-        'NAME':'artgallery',
-        'USER':'postgres',
-        'PASSWORD':'1234567',
+        'NAME':'name',
+        'USER':'username',
+        'PASSWORD':'password',
         'HOST':'localhost',
         'PORT':'5432',
     }
